@@ -1,0 +1,557 @@
+.gallery-section {
+  padding: 170px 8%;
+  background: #f2f1ee;
+  color: #111111;
+}
+
+.gallery-heading {
+  max-width: 1200px;
+  margin: 0 auto 90px;
+
+  display: grid;
+  grid-template-columns: 1fr 0.65fr;
+
+  column-gap: 100px;
+  align-items: end;
+}
+
+.gallery-eyebrow {
+  grid-column: 1 / -1;
+
+  margin-bottom: 30px;
+
+  color: #777777;
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  font-weight: 600;
+}
+
+.gallery-title {
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(52px, 6vw, 88px);
+
+  line-height: 0.94;
+
+  font-weight: 500;
+
+  letter-spacing: -4px;
+
+  margin: 0;
+}
+
+.gallery-title span {
+  color: #777777;
+  font-style: normal;
+}
+
+.gallery-description {
+   max-width: 400px;
+
+  margin: 0;
+
+  color: #6f6f6f;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================
+   EDITORIAL GALLERY
+========================= */
+
+.gallery-editorial {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.65fr 0.75fr;
+
+  gap: 20px;
+}
+
+.gallery-main,
+.gallery-side-image,
+.gallery-bottom-image {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  background: none;
+
+  cursor: pointer;
+
+  overflow: hidden;
+}
+
+.gallery-main {
+  height: 680px;
+}
+
+.gallery-main img,
+.gallery-side-image img,
+.gallery-bottom-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.5s ease;
+}
+
+.gallery-main:hover img,
+.gallery-side-image:hover img,
+.gallery-bottom-image:hover img {
+  transform: scale(1.045);
+  filter: brightness(0.8);
+}
+
+.gallery-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  gap: 20px;
+}
+
+.gallery-side-image {
+  min-height: 0;
+}
+
+
+/* =========================
+   IMAGE OVERLAYS
+========================= */
+
+.gallery-main::after,
+.gallery-side-image::after,
+.gallery-bottom-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.62),
+      rgba(0, 0, 0, 0.05) 55%,
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+.gallery-main-overlay,
+.gallery-side-overlay,
+.gallery-bottom-overlay {
+  position: absolute;
+
+  left: 28px;
+  right: 28px;
+  bottom: 25px;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  color: #ffffff;
+
+  text-align: left;
+}
+
+.gallery-main-overlay span,
+.gallery-side-overlay span,
+.gallery-bottom-overlay span {
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.gallery-main-overlay strong,
+.gallery-side-overlay strong,
+.gallery-bottom-overlay strong {
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================
+   BOTTOM EDITORIAL BLOCK
+========================= */
+
+.gallery-bottom {
+  max-width: 1200px;
+
+  margin: 20px auto 0;
+
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 20px;
+}
+
+.gallery-bottom-image {
+  height: 420px;
+}
+
+.gallery-bottom-copy {
+  min-height: 420px;
+
+  padding: 55px;
+
+  border: 1px solid #d8d7d3;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-bottom-copy > span {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #777777;
+}
+
+.gallery-bottom-copy p {
+  max-width: 390px;
+
+  margin-top: 25px;
+
+  font-size: clamp(25px, 2.4vw, 38px);
+
+  line-height: 1.15;
+
+  letter-spacing: -1px;
+
+  color: #111111;
+}
+
+.gallery-view-button {
+  width: fit-content;
+
+  margin-top: 45px;
+
+  padding: 14px 0;
+
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+  background: none;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  display: flex;
+
+  gap: 18px;
+
+  transition:
+    border-color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.gallery-view-button:hover {
+  gap: 25px;
+  border-color: #ffffff;
+}
+
+.gallery-view-button span {
+  font-size: 15px;
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.gallery-lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.96);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+}
+
+.gallery-lightbox-image {
+  width: min(1100px, 90vw);
+  height: min(78vh, 760px);
+}
+
+.gallery-lightbox-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+.gallery-close,
+.gallery-arrow {
+  position: absolute;
+
+  border: none;
+
+  background: none;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  z-index: 2;
+}
+
+.gallery-close {
+  top: 25px;
+  right: 35px;
+
+  font-size: 42px;
+
+  font-weight: 200;
+}
+
+.gallery-arrow {
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 55px;
+
+  font-weight: 200;
+}
+
+.gallery-arrow-left {
+  left: 30px;
+}
+
+.gallery-arrow-right {
+  right: 30px;
+}
+
+.gallery-counter {
+  position: absolute;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .gallery-heading {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .gallery-description {
+    max-width: 500px;
+  }
+
+  .gallery-editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-main {
+    height: 560px;
+  }
+
+  .gallery-side {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 280px;
+  }
+
+  .gallery-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-bottom-copy {
+    min-height: 300px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .gallery-section {
+    padding: 110px 6%;
+  }
+
+  .gallery-heading {
+    margin-bottom: 55px;
+  }
+
+  .gallery-eyebrow {
+    margin-bottom: 22px;
+  }
+
+  .gallery-title {
+    font-size: 52px;
+
+    letter-spacing: -2.5px;
+  }
+
+  .gallery-description {
+    font-size: 14px;
+
+    line-height: 1.75;
+  }
+
+  .gallery-editorial {
+    display: block;
+  }
+
+  .gallery-main {
+    height: 500px;
+  }
+
+  .gallery-side {
+    margin-top: 12px;
+
+    display: flex;
+
+    overflow-x: auto;
+
+    gap: 12px;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+  }
+
+  .gallery-side::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-side-image {
+    flex: 0 0 78%;
+
+    height: 250px;
+
+    scroll-snap-align: start;
+  }
+
+  .gallery-main-overlay,
+  .gallery-side-overlay,
+  .gallery-bottom-overlay {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .gallery-main-overlay strong,
+  .gallery-side-overlay strong,
+  .gallery-bottom-overlay strong {
+    font-size: 12px;
+  }
+
+  .gallery-bottom {
+    display: block;
+
+    margin-top: 12px;
+  }
+
+  .gallery-bottom-image {
+    height: 300px;
+  }
+
+  .gallery-bottom-copy {
+    min-height: auto;
+
+    margin-top: 12px;
+
+    padding: 35px 25px;
+  }
+
+  .gallery-bottom-copy p {
+    font-size: 28px;
+  }
+
+  .gallery-view-button {
+    margin-top: 35px;
+  }
+
+  .gallery-lightbox {
+    padding: 20px;
+  }
+
+  .gallery-lightbox-image {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .gallery-close {
+    top: 15px;
+    right: 20px;
+
+    font-size: 35px;
+  }
+
+  .gallery-arrow {
+    font-size: 40px;
+  }
+
+  .gallery-arrow-left {
+    left: 10px;
+  }
+
+  .gallery-arrow-right {
+    right: 10px;
+  }
+}

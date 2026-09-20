@@ -1,0 +1,165 @@
+.about-section {
+  padding: 160px 8%;
+  background: #ffffff;
+  color: #050505;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-eyebrow {
+  color: #111111;
+
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  font-weight: 600;
+
+  margin-bottom: 28px;
+}
+
+.about-title {
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(52px, 6vw, 88px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: -4px;
+
+  margin: 0;
+}
+
+.about-title span {
+  color: #8a8a8a;
+  font-style: normal;
+}
+
+.about-description {
+  max-width: 650px;
+
+  margin: 40px auto 0;
+
+  color: #666666;
+
+  font-size: 16px;
+  line-height: 1.85;
+
+  letter-spacing: 0.1px;
+}
+
+.about-stats {
+  max-width: 1100px;
+
+  margin: 110px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.about-stat {
+  padding: 42px 20px;
+
+  text-align: center;
+
+  border-right: 1px solid #d8d8d8;
+}
+
+.about-stat:last-child {
+  border-right: none;
+}
+
+.about-stat strong {
+  display: block;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 42px;
+
+  font-weight: 500;
+
+  letter-spacing: -2px;
+}
+
+.about-stat span {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #777777;
+
+  font-size: 10px;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 110px 7%;
+  }
+
+  .about-title {
+    font-size: 52px;
+    letter-spacing: -2.5px;
+  }
+
+  .about-description {
+    margin-top: 30px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-top: 70px;
+  }
+
+  .about-stat {
+    padding: 32px 12px;
+  }
+
+  .about-stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .about-stat:nth-child(3) {
+    border-top: 1px solid #d8d8d8;
+  }
+
+  .about-stat:nth-child(4) {
+    border-top: 1px solid #d8d8d8;
+  }
+
+  .about-stat strong {
+    font-size: 32px;
+    letter-spacing: -1.5px;
+  }
+
+  .about-stat span {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+}

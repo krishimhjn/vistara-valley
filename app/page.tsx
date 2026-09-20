@@ -1,69 +1,159 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useRef } from "react";
+
+import About from "./components/About";
+import Highlights from "./components/Highlights";
+import MasterPlan from "./components/MasterPlan";
+import Gallery from "./components/Gallery";
+import Amenities from "./components/Amenities";
+import Location from "./components/Location";
+import Plots from "./components/Plots";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = heroRef.current;
+      const image = heroImageRef.current;
+
+      if (!hero || !image) return;
+
+      const scrollY = window.scrollY;
+      const heroHeight = hero.offsetHeight;
+
+      if (scrollY <= heroHeight) {
+        const movement = scrollY * 0.35;
+
+        image.style.transform =
+          `translate3d(0, ${movement}px, 0) scale(1.08)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main>
+
+      {/* Navigation */}
+      <nav className="navbar">
+
+        <div className="logo">
+          <img
+            src="/images/logo.png"
+            alt="Vistara Valley"
+          />
+        </div>
+
+        <div className="nav-links">
+          <a href="#about">About</a>
+          <a href="#amenities">Amenities</a>
+          <a href="#location">Location</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <a
+          href="#contact"
+          className="nav-button"
+        >
+          Book a Site Visit
+        </a>
+
+      </nav>
+
+
+      {/* Hero Section */}
+      <section
+        className="hero"
+        ref={heroRef}
+      >
+
+        <div
+          className="hero-parallax"
+          ref={heroImageRef}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+
+        <div className="hero-overlay">
+
+         <p className="eyebrow hero-eyebrow">
+  RESIDENTIAL & COMMERCIAL PLOTS
+</p>
+
+<h1 className="hero-title">
+  Where life
+  <br />
+  <span>meets opportunity.</span>
+</h1>
+
+<p className="hero-description">
+  Vistara Valley — Khargone&apos;s premium residential
+  and commercial plotted development on Khandwa Road,
+  designed for modern living, business and the future.
+</p>
+
+          <div className="hero-buttons">
+
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#about"
+              className="primary-button"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
+              Explore Vistara Valley
+            </a>
+
             <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#contact"
+              className="secondary-button"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Book a Site Visit
+            </a>
+
+          </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+      </section>
+
+
+      {/* Gallery */}
+      <Gallery />
+
+      {/* About */}
+      <About />
+
+      {/* Highlights */}
+      <Highlights />
+
+      {/* Master Plan */}
+      <MasterPlan />
+
+      {/* Amenities */}
+      <Amenities />
+
+      {/* Plots */}
+      <Plots />
+
+      {/* Location */}
+      <Location />
+
+      {/* Contact */}
+      <Contact />
+
+      {/* Footer */}
+      <Footer />
+
+    </main>
   );
 }

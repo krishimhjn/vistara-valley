@@ -1,0 +1,174 @@
+.masterplan-section {
+  padding: 150px 8%;
+  background: var(--dark);
+  color: white;
+}
+
+.masterplan-header {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.masterplan-eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.masterplan-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(50px, 5.5vw, 82px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -3px;
+}
+
+.masterplan-title span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.masterplan-description {
+  max-width: 650px;
+  margin: 35px auto 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.masterplan-content {
+  max-width: 1200px;
+  margin: 100px auto 0;
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 70px;
+  align-items: stretch;
+}
+
+.masterplan-image {
+  min-height: 600px;
+  background: #202820;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.masterplan-placeholder {
+  width: 85%;
+  height: 85%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.masterplan-placeholder span {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+}
+
+.masterplan-placeholder p {
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.masterplan-placeholder small {
+  margin-top: 28px;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.masterplan-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.masterplan-detail {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 20px;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.masterplan-detail:first-child {
+  padding-top: 0;
+}
+
+.masterplan-detail > span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.masterplan-detail h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.masterplan-detail p {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.masterplan-button-wrapper {
+  margin-top: 60px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .masterplan-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .masterplan-image {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .masterplan-section {
+    padding: 100px 7%;
+  }
+
+  .masterplan-title {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .masterplan-description {
+    font-size: 15px;
+  }
+
+  .masterplan-content {
+    margin-top: 65px;
+  }
+
+  .masterplan-image {
+    min-height: 380px;
+  }
+
+  .masterplan-placeholder {
+    width: 80%;
+    height: 80%;
+  }
+
+  .masterplan-placeholder span {
+    font-size: 21px;
+  }
+}
