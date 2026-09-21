@@ -76,57 +76,81 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section
-        className="hero"
-        ref={heroRef}
-      >
+      <section ref={heroRef} className="hero">
+  <div
+    ref={heroImageRef}
+    className="hero-parallax"
+  />
 
-        <div
-          className="hero-parallax"
-          ref={heroImageRef}
-        />
+  <div className="hero-content">
 
-        <div className="hero-overlay">
+    <div className="hero-copy">
+      <p className="hero-eyebrow">
+        PREMIUM RESIDENTIAL & COMMERCIAL PLOTS
+      </p>
 
-         <p className="eyebrow hero-eyebrow">
-  RESIDENTIAL & COMMERCIAL PLOTS
-</p>
+      <h1 className="hero-title">
+        Vistara Valley
+        <br />
+        <span>Life in the city.</span>
+      </h1>
 
-<h1 className="hero-title">
-  Where life
-  <br />
-  <span>meets opportunity.</span>
-</h1>
+      <p className="hero-description">
+        A thoughtfully planned address on Khandwa Road,
+        Khargone, designed for modern living, business
+        opportunities and long-term growth.
+      </p>
 
-<p className="hero-description">
-  Vistara Valley — Khargone&apos;s premium residential
-  and commercial plotted development on Khandwa Road,
-  designed for modern living, business and the future.
-</p>
+      <div className="hero-buttons">
+        <a
+          href="#contact"
+          className="primary-button"
+        >
+          Book a Site Visit
+          <span>↗</span>
+        </a>
 
-          <div className="hero-buttons">
+        <a
+          href="#about"
+          className="secondary-button"
+        >
+          Explore Project
+          <span>↓</span>
+        </a>
+      </div>
+    </div>
 
-            <a
-              href="#about"
-              className="primary-button"
-            >
-              Explore Vistara Valley
-            </a>
+    <div className="hero-highlights">
 
-            <a
-              href="#contact"
-              className="secondary-button"
-            >
-              Book a Site Visit
-            </a>
+      <div className="hero-highlight">
+        <strong>RERA</strong>
+        <span>Registered Project</span>
+      </div>
 
-          </div>
+      <div className="hero-highlight">
+        <strong>TNCP</strong>
+        <span>Approved Project</span>
+      </div>
 
-        </div>
+      <div className="hero-highlight">
+        <strong>TWO GATES</strong>
+        <span>Entry & Exit</span>
+      </div>
 
-      </section>
+      <div className="hero-highlight">
+        <strong>2 IN 1</strong>
+        <span>Residential & Commercial</span>
+      </div>
 
+    </div>
 
+    <div className="hero-scroll">
+      <span>SCROLL</span>
+      <div>↓</div>
+    </div>
+
+  </div>
+</section>
       {/* Gallery */}
       <Gallery />
 

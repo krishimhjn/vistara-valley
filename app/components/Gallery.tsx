@@ -28,7 +28,9 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(
+    null
+  );
 
   const nextImage = () => {
     setSelectedImage((current) =>
@@ -50,52 +52,99 @@ export default function Gallery() {
   return (
     <>
       <section className="gallery-section" id="gallery">
-        <Reveal>
-          <div className="gallery-heading">
-            <p className="gallery-eyebrow">
-              EXPERIENCE VISTARA VALLEY
-            </p>
+        <div className="gallery-layout">
+          {/* LEFT PANEL */}
 
-            <h2 className="gallery-title">
-              A place
-              <br />
-              <span>worth arriving at.</span>
-            </h2>
-
-            <p className="gallery-description">
-              A visual introduction to the spaces, landscape
-              and distinctive character envisioned for
-              Vistara Valley.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="gallery-editorial">
-            <button
-              className="gallery-main"
-              onClick={() => setSelectedImage(0)}
-              aria-label={`Open ${galleryImages[0].title}`}
-            >
-              <img
-                src={galleryImages[0].src}
-                alt={galleryImages[0].alt}
-              />
-
-              <div className="gallery-main-overlay">
-                <span>01</span>
-                <strong>{galleryImages[0].title}</strong>
+          <Reveal>
+            <div className="gallery-info-panel">
+              <div className="gallery-panel-top">
+                <span>VISTARA VALLEY</span>
+                <span>04 VISUALS</span>
               </div>
-            </button>
 
-            <div className="gallery-side">
-              {galleryImages.slice(1, 3).map((image, index) => {
+              <div className="gallery-panel-main">
+                <p className="gallery-eyebrow">
+                  VISUAL JOURNEY
+                </p>
+
+                <h2 className="gallery-title">
+                  A closer look
+                  <br />
+                  <span>at Vistara Valley.</span>
+                </h2>
+
+                <p className="gallery-description">
+                  Explore the spaces, landscape and architectural
+                  character envisioned for a distinctive address
+                  on Khandwa Road, Khargone.
+                </p>
+
+                <div className="gallery-index">
+                  {galleryImages.map((image, index) => (
+                    <button
+                      key={image.title}
+                      onClick={() => setSelectedImage(index)}
+                      className={
+                        selectedImage === index
+                          ? "gallery-index-item active"
+                          : "gallery-index-item"
+                      }
+                    >
+                      <span>
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+
+                      <strong>{image.title}</strong>
+
+                      <em>↗</em>
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  className="gallery-view-button"
+                  onClick={() => setSelectedImage(0)}
+                >
+                  View Gallery
+                  <span>↗</span>
+                </button>
+              </div>
+
+              <div className="gallery-panel-bottom">
+                <span>PREMIUM RESIDENTIAL & COMMERCIAL</span>
+                <span>KHARGONE</span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* IMAGE GRID */}
+
+          <Reveal>
+            <div className="gallery-grid">
+              <button
+                className="gallery-image gallery-image-large"
+                onClick={() => setSelectedImage(0)}
+                aria-label={`Open ${galleryImages[0].title}`}
+              >
+                <img
+                  src={galleryImages[0].src}
+                  alt={galleryImages[0].alt}
+                />
+
+                <div className="gallery-image-overlay">
+                  <span>01</span>
+                  <strong>{galleryImages[0].title}</strong>
+                  <em>↗</em>
+                </div>
+              </button>
+
+              {galleryImages.slice(1).map((image, index) => {
                 const imageIndex = index + 1;
 
                 return (
                   <button
-                    className="gallery-side-image"
-                    key={image.src}
+                    key={image.title}
+                    className="gallery-image"
                     onClick={() => setSelectedImage(imageIndex)}
                     aria-label={`Open ${image.title}`}
                   >
@@ -104,57 +153,24 @@ export default function Gallery() {
                       alt={image.alt}
                     />
 
-                    <div className="gallery-side-overlay">
+                    <div className="gallery-image-overlay">
                       <span>
                         {String(imageIndex + 1).padStart(2, "0")}
                       </span>
 
                       <strong>{image.title}</strong>
+
+                      <em>↗</em>
                     </div>
                   </button>
                 );
               })}
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="gallery-bottom">
-            <button
-              className="gallery-bottom-image"
-              onClick={() => setSelectedImage(3)}
-              aria-label={`Open ${galleryImages[3].title}`}
-            >
-              <img
-                src={galleryImages[3].src}
-                alt={galleryImages[3].alt}
-              />
-
-              <div className="gallery-bottom-overlay">
-                <span>04</span>
-                <strong>{galleryImages[3].title}</strong>
-              </div>
-            </button>
-
-            <div className="gallery-bottom-copy">
-              <span>THE VISTARA VALLEY JOURNEY</span>
-
-              <p>
-                Designed around openness, movement and a
-                distinctive sense of arrival.
-              </p>
-
-              <button
-                className="gallery-view-button"
-                onClick={() => setSelectedImage(0)}
-              >
-                View Gallery
-                <span>↗</span>
-              </button>
-            </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
+
+      {/* LIGHTBOX */}
 
       {selectedImage !== null && (
         <div className="gallery-lightbox">
