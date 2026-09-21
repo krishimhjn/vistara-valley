@@ -1,165 +1,290 @@
 .about-section {
-  padding: 160px 8%;
+  position: relative;
+  padding: 170px 8%;
   background: #ffffff;
-  color: #050505;
+  color: #111111;
+  overflow: hidden;
 }
 
-.about-content {
-  max-width: 900px;
+/* INTRO */
+
+.about-intro {
+  max-width: 1150px;
   margin: 0 auto;
   text-align: center;
 }
 
 .about-eyebrow {
-  color: #111111;
-
-  font-size: 10px;
-  letter-spacing: 3.5px;
-  font-weight: 600;
-
-  margin-bottom: 28px;
-}
-
-.about-title {
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size: clamp(52px, 6vw, 88px);
-
-  line-height: 0.95;
-
-  font-weight: 500;
-
-  letter-spacing: -4px;
-
-  margin: 0;
-}
-
-.about-title span {
-  color: #8a8a8a;
-  font-style: normal;
-}
-
-.about-description {
-  max-width: 650px;
-
-  margin: 40px auto 0;
-
-  color: #666666;
-
-  font-size: 16px;
-  line-height: 1.85;
-
-  letter-spacing: 0.1px;
-}
-
-.about-stats {
-  max-width: 1100px;
-
-  margin: 110px auto 0;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  border-top: 1px solid #d8d8d8;
-  border-bottom: 1px solid #d8d8d8;
-}
-
-.about-stat {
-  padding: 42px 20px;
-
-  text-align: center;
-
-  border-right: 1px solid #d8d8d8;
-}
-
-.about-stat:last-child {
-  border-right: none;
-}
-
-.about-stat strong {
-  display: block;
-
-  font-family:
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  font-size: 42px;
-
-  font-weight: 500;
-
-  letter-spacing: -2px;
-}
-
-.about-stat span {
-  display: block;
-
-  margin-top: 12px;
+  display: inline-block;
+  margin-bottom: 30px;
 
   color: #777777;
 
   font-size: 10px;
+  letter-spacing: 3.5px;
+  font-weight: 600;
+}
 
-  letter-spacing: 1.8px;
+.about-title {
+  margin: 0;
 
-  text-transform: uppercase;
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(52px, 6.5vw, 92px);
+  line-height: 0.93;
+  font-weight: 500;
+  letter-spacing: -4.5px;
+}
+
+.about-title span {
+  color: #8b8b8b;
+}
+
+.about-description {
+  max-width: 680px;
+  margin: 42px auto 0;
+
+  color: #666666;
+
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.05px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* FEATURE GRID */
 
-@media (max-width: 768px) {
+.about-features {
+  max-width: 1200px;
+  margin: 120px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid #d8d8d6;
+  border-bottom: 1px solid #d8d8d6;
+}
+
+.about-feature {
+  position: relative;
+
+  min-height: 320px;
+  padding: 32px 30px 35px;
+
+  border-right: 1px solid #d8d8d6;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  transition:
+    background 0.4s ease,
+    transform 0.4s ease;
+}
+
+.about-feature:last-child {
+  border-right: none;
+}
+
+
+/* TOP */
+
+.about-feature-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-feature-number {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #999999;
+}
+
+.about-feature-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d6d6d4;
+  border-radius: 50%;
+
+  color: #777777;
+
+  font-size: 14px;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* CONTENT */
+
+.about-feature-content {
+  margin-top: auto;
+}
+
+.about-feature-label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #999999;
+
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+}
+
+.about-feature h3 {
+  margin: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+}
+
+.about-feature p {
+  max-width: 245px;
+
+  margin: 15px 0 0;
+
+  color: #777777;
+
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+
+/* BOTTOM LINE */
+
+.about-feature-line {
+  width: 0;
+  height: 1px;
+
+  margin-top: 28px;
+
+  background: #111111;
+
+  transition: width 0.45s ease;
+}
+
+
+/* HOVER */
+
+.about-feature:hover {
+  background: #f7f7f5;
+  transform: translateY(-5px);
+}
+
+.about-feature:hover .about-feature-arrow {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+
+  transform: rotate(45deg);
+}
+
+.about-feature:hover .about-feature-line {
+  width: 55px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
   .about-section {
-    padding: 110px 7%;
+    padding: 130px 6%;
+  }
+
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-feature:nth-child(2) {
+    border-right: none;
+  }
+
+  .about-feature:nth-child(3),
+  .about-feature:nth-child(4) {
+    border-top: 1px solid #d8d8d6;
+  }
+
+  .about-feature:nth-child(4) {
+    border-right: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 110px 6%;
+  }
+
+  .about-eyebrow {
+    margin-bottom: 25px;
+    font-size: 9px;
+    letter-spacing: 2.5px;
   }
 
   .about-title {
-    font-size: 52px;
-    letter-spacing: -2.5px;
+    font-size: 50px;
+    line-height: 0.95;
+    letter-spacing: -2.8px;
   }
 
   .about-description {
     margin-top: 30px;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.8;
   }
 
-  .about-stats {
-    grid-template-columns: repeat(2, 1fr);
-
-    margin-top: 70px;
+  .about-features {
+    grid-template-columns: 1fr;
+    margin-top: 75px;
   }
 
-  .about-stat {
-    padding: 32px 12px;
-  }
+  .about-feature,
+  .about-feature:nth-child(2),
+  .about-feature:nth-child(4) {
+    min-height: 245px;
 
-  .about-stat:nth-child(2) {
+    padding: 28px 24px 30px;
+
     border-right: none;
+    border-bottom: 1px solid #d8d8d6;
   }
 
-  .about-stat:nth-child(3) {
-    border-top: 1px solid #d8d8d8;
+  .about-feature:first-child {
+    border-top: none;
   }
 
-  .about-stat:nth-child(4) {
-    border-top: 1px solid #d8d8d8;
+  .about-feature:last-child {
+    border-bottom: none;
   }
 
-  .about-stat strong {
-    font-size: 32px;
-    letter-spacing: -1.5px;
+  .about-feature h3 {
+    font-size: 20px;
   }
 
-  .about-stat span {
-    font-size: 9px;
-    letter-spacing: 1.2px;
+  .about-feature p {
+    max-width: 290px;
   }
 }

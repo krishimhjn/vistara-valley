@@ -1,11 +1,42 @@
 import Reveal from "./Reveal";
 import "./About.css";
 
+const features = [
+  {
+    number: "01",
+    label: "RERA",
+    title: "Registered Project",
+    description:
+      "A registered development planned with transparency and a clear project framework.",
+  },
+  {
+    number: "02",
+    label: "TNCP",
+    title: "Approved Development",
+    description:
+      "Planned and approved development for a more structured project experience.",
+  },
+  {
+    number: "03",
+    label: "TWO GATES",
+    title: "Two-Gate Access",
+    description:
+      "Two entry and exit gates designed to support smoother movement through the development.",
+  },
+  {
+    number: "04",
+    label: "2 IN 1",
+    title: "Residential + Commercial",
+    description:
+      "A distinctive development bringing residential living and commercial opportunity together.",
+  },
+];
+
 export default function About() {
   return (
     <section className="about-section" id="about">
       <Reveal>
-        <div className="about-content">
+        <div className="about-intro">
           <p className="about-eyebrow">
             THE VISTARA VALLEY EXPERIENCE
           </p>
@@ -13,7 +44,7 @@ export default function About() {
           <h2 className="about-title">
             More than a plot.
             <br />
-            <span>A place to belong.</span>
+            <span>An address with a sense of arrival.</span>
           </h2>
 
           <p className="about-description">
@@ -27,28 +58,30 @@ export default function About() {
       </Reveal>
 
       <Reveal>
-        <div className="about-stats">
+        <div className="about-features">
+          {features.map((feature) => (
+            <div className="about-feature" key={feature.number}>
+              <div className="about-feature-top">
+                <span className="about-feature-number">
+                  {feature.number}
+                </span>
 
-          <div className="about-stat">
-            <strong>RERA</strong>
-            <span>Registered Project</span>
-          </div>
+                <span className="about-feature-arrow">↗</span>
+              </div>
 
-          <div className="about-stat">
-            <strong>TNCP</strong>
-            <span>Approved Project</span>
-          </div>
+              <div className="about-feature-content">
+                <span className="about-feature-label">
+                  {feature.label}
+                </span>
 
-          <div className="about-stat">
-            <strong>2 IN 1</strong>
-            <span>Residential & Commercial</span>
-          </div>
+                <h3>{feature.title}</h3>
 
-          <div className="about-stat">
-            <strong>KHANDWA RD</strong>
-            <span>Premium Highway Location</span>
-          </div>
+                <p>{feature.description}</p>
+              </div>
 
+              <div className="about-feature-line" />
+            </div>
+          ))}
         </div>
       </Reveal>
     </section>
