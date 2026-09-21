@@ -1,175 +1,108 @@
-"use client";
-
-import { useState } from "react";
 import Reveal from "./Reveal";
 import "./Plots.css";
 
-const plots = [
+const plotTypes = [
   {
     number: "01",
-    title: "Residential",
-    type: "Residential Plots",
-    category: "Residential",
-    status: "Available",
+    category: "RESIDENTIAL",
+    title: "Build the life\nyou imagine.",
+    description:
+      "Premium residential plots planned for homes with space, privacy and the freedom to create your own address.",
+    action: "Explore Residential",
   },
   {
     number: "02",
-    title: "Premium Residential",
-    type: "Residential Plots",
-    category: "Residential",
-    status: "Details Soon",
-  },
-  {
-    number: "03",
-    title: "Commercial",
-    type: "Commercial Plots",
-    category: "Commercial",
-    status: "Available",
-  },
-  {
-    number: "04",
-    title: "Premium Commercial",
-    type: "Commercial Plots",
-    category: "Commercial",
-    status: "Details Soon",
+    category: "COMMERCIAL",
+    title: "Create your\nnext opportunity.",
+    description:
+      "Commercial plots positioned for businesses, retail and future opportunities along Khandwa Road.",
+    action: "Explore Commercial",
   },
 ];
 
 export default function Plots() {
-  const [category, setCategory] = useState<
-    "All" | "Residential" | "Commercial"
-  >("All");
-
-  const filteredPlots =
-    category === "All"
-      ? plots
-      : plots.filter(
-          (plot) => plot.category === category
-        );
-
   return (
-    <section
-      className="plots-section"
-      id="plots"
-    >
-      <Reveal>
-        <div className="plots-header">
-
-          <div>
-            <p className="plots-eyebrow">
-              PLOTS & AVAILABILITY
-            </p>
+    <section className="plots-section" id="plots">
+      <div className="plots-intro">
+        <Reveal>
+          <div className="plots-heading">
+            <p className="plots-eyebrow">PLOTS & OPPORTUNITIES</p>
 
             <h2 className="plots-title">
-              Choose the space
+              Choose your
               <br />
-              <span>that feels like yours.</span>
+              <span>address.</span>
             </h2>
+
+            <p className="plots-description">
+              Whether you are creating a home or building a business,
+              Vistara Valley offers a thoughtfully planned address
+              designed around possibility.
+            </p>
           </div>
+        </Reveal>
 
-          <p className="plots-intro">
-            Vistara Valley offers residential and commercial
-            plotted opportunities on Khandwa Road, Khargone.
-            Plot sizes, pricing and availability will be updated
-            with the official project details.
-          </p>
+        <Reveal>
+          <div className="plots-intro-meta">
+            <span>VISTARA VALLEY</span>
+            <span>KHANDWA ROAD · KHARGONE</span>
+          </div>
+        </Reveal>
+      </div>
 
-        </div>
-      </Reveal>
-
-
-      <Reveal>
-        <div className="plots-filters">
-
-          <button
-            className={
-              category === "All"
-                ? "plot-filter active"
-                : "plot-filter"
-            }
-            onClick={() => setCategory("All")}
-          >
-            All Plots
-          </button>
-
-          <button
-            className={
-              category === "Residential"
-                ? "plot-filter active"
-                : "plot-filter"
-            }
-            onClick={() => setCategory("Residential")}
-          >
-            Residential
-          </button>
-
-          <button
-            className={
-              category === "Commercial"
-                ? "plot-filter active"
-                : "plot-filter"
-            }
-            onClick={() => setCategory("Commercial")}
-          >
-            Commercial
-          </button>
-
-        </div>
-      </Reveal>
-
-
-      <Reveal>
-        <div className="plots-grid">
-
-          {filteredPlots.map((plot) => (
-            <div
-              className="plot-card"
-              key={plot.number}
-            >
-
+      <div className="plots-grid">
+        {plotTypes.map((plot) => (
+          <Reveal key={plot.number}>
+            <article className="plot-card">
               <div className="plot-card-top">
-
-                <span className="plot-number">
-                  {plot.number}
-                </span>
-
-                <span className="plot-status">
-                  {plot.status}
-                </span>
-
+                <span className="plot-number">{plot.number}</span>
+                <span className="plot-category">{plot.category}</span>
               </div>
-
 
               <div className="plot-card-content">
-
-                <span className="plot-type">
-                  {plot.type}
-                </span>
-
                 <h3>
-                  {plot.title}
+                  {plot.title.split("\n").map((line, index) => (
+                    <span key={line}>
+                      {line}
+                      {index === 0 && <br />}
+                    </span>
+                  ))}
                 </h3>
 
-                <p>
-                  Official plot sizes, pricing and availability
-                  will be updated here as the project details
-                  are finalized.
-                </p>
+                <p>{plot.description}</p>
 
+                <button className="plot-link">
+                  <span>{plot.action}</span>
+                  <strong>↗</strong>
+                </button>
               </div>
 
+              <div className="plot-card-footer">
+                <span>VISTARA VALLEY</span>
+                <span>{plot.number} / 02</span>
+              </div>
+            </article>
+          </Reveal>
+        ))}
+      </div>
 
-              <a
-                href="#contact"
-                className="plot-button"
-              >
-                Enquire Now
-                <span>↗</span>
-              </a>
+      <Reveal>
+        <div className="plots-bottom">
+          <div className="plots-bottom-line" />
 
-            </div>
-          ))}
+          <div className="plots-bottom-content">
+            <span>YOUR LAND. YOUR POSSIBILITY.</span>
 
+            <p>
+              Explore the master plan to understand the layout,
+              connectivity and overall vision of Vistara Valley.
+            </p>
+
+            <a href="#master-plan" className="plots-master-link">
+              View Master Plan
+              <span>↓</span>
+            </a>
+          </div>
         </div>
       </Reveal>
     </section>
