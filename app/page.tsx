@@ -4,19 +4,22 @@ import { useEffect, useRef, useState } from "react";
 import "./globals.css";
 
 export default function Home() {
-  const heroImageRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  /* =========================================
+     HERO PARALLAX
+  ========================================= */
 
   useEffect(() => {
     const handleScroll = () => {
-      const image = heroImageRef.current;
-
-      if (!image) return;
+      if (!heroRef.current) return;
 
       const scrollY = window.scrollY;
 
       if (scrollY <= window.innerHeight) {
-        image.style.transform = `translate3d(0, ${scrollY * 0.28}px, 0) scale(1.08)`;
+        heroRef.current.style.transform =
+          `translate3d(0, ${scrollY * 0.22}px, 0) scale(1.06)`;
       }
     };
 
@@ -31,6 +34,10 @@ export default function Home() {
     };
   }, []);
 
+  /* =========================================
+     CLOSE MOBILE MENU
+  ========================================= */
+
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -38,45 +45,51 @@ export default function Home() {
   return (
     <main>
 
-      {/* =========================================
+      {/* ==================================================
           SECTION 1 — HERO
-      ========================================= */}
+      ================================================== */}
 
-      <section className="hero" id="home">
+      <section
+        className="vv-hero"
+        id="home"
+      >
 
-        {/* PARALLAX BACKGROUND */}
+        {/* HERO IMAGE */}
+
         <div
-          ref={heroImageRef}
-          className="hero-background"
+          ref={heroRef}
+          className="vv-hero-image"
         />
 
-        {/* OVERLAY */}
-        <div className="hero-overlay" />
+
+        {/* DARK OVERLAY */}
+
+        <div className="vv-hero-overlay" />
 
 
-        {/* =========================================
+        {/* ==================================================
             NAVBAR
-        ========================================= */}
+        ================================================== */}
 
-        <header className="hero-nav">
+        <header className="vv-navbar">
 
           {/* LOGO */}
 
           <a
             href="#home"
-            className="hero-logo"
+            className="vv-logo"
             onClick={closeMenu}
           >
             <img
               src="/images/logo.png"
-              alt="Vistara Valley - Life in the city"
+              alt="Vistara Valley"
             />
           </a>
 
 
           {/* DESKTOP NAVIGATION */}
 
-          <nav className="desktop-nav">
+          <nav className="vv-desktop-nav">
 
             <a href="#about">
               About
@@ -104,10 +117,15 @@ export default function Home() {
 
             <a
               href="#contact"
-              className="nav-cta"
+              className="vv-nav-button"
             >
-              <span>Book a Site Visit</span>
-              <strong>↗</strong>
+              <span>
+                Book a Site Visit
+              </span>
+
+              <strong>
+                ↗
+              </strong>
             </a>
 
           </nav>
@@ -116,41 +134,47 @@ export default function Home() {
           {/* MOBILE MENU BUTTON */}
 
           <button
-            className={`hero-menu ${
-              menuOpen ? "menu-active" : ""
-            }`}
             type="button"
+            className={`vv-hamburger ${
+              menuOpen
+                ? "vv-hamburger-active"
+                : ""
+            }`}
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-label={
               menuOpen
-                ? "Close navigation menu"
-                : "Open navigation menu"
+                ? "Close menu"
+                : "Open menu"
             }
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(!menuOpen)}
           >
+
             <span />
             <span />
             <span />
+
           </button>
 
         </header>
 
 
-        {/* =========================================
+        {/* ==================================================
             MOBILE MENU
-        ========================================= */}
+        ================================================== */}
 
         <div
-          className={`mobile-menu ${
-            menuOpen ? "mobile-menu-open" : ""
+          className={`vv-mobile-navigation ${
+            menuOpen
+              ? "vv-mobile-navigation-open"
+              : ""
           }`}
         >
 
-          <div className="mobile-menu-inner">
+          <div className="vv-mobile-navigation-inner">
 
-            {/* TOP */}
+            {/* MENU HEADER */}
 
-            <div className="mobile-menu-top">
+            <div className="vv-mobile-menu-header">
 
               <span>
                 VISTARA VALLEY
@@ -163,97 +187,170 @@ export default function Home() {
             </div>
 
 
-            {/* LINKS */}
+            {/* MENU LINKS */}
 
-            <nav className="mobile-menu-links">
+            <nav className="vv-mobile-menu-links">
 
               <a
                 href="#home"
                 onClick={closeMenu}
               >
-                <small>01</small>
-                <span>Home</span>
+                <small>
+                  01
+                </small>
+
+                <span>
+                  Home
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
+
 
               <a
                 href="#about"
                 onClick={closeMenu}
               >
-                <small>02</small>
-                <span>About</span>
+                <small>
+                  02
+                </small>
+
+                <span>
+                  About
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
+
 
               <a
                 href="#plots"
                 onClick={closeMenu}
               >
-                <small>03</small>
-                <span>Plots</span>
+                <small>
+                  03
+                </small>
+
+                <span>
+                  Plots
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
+
 
               <a
                 href="#master-plan"
                 onClick={closeMenu}
               >
-                <small>04</small>
-                <span>Master Plan</span>
+                <small>
+                  04
+                </small>
+
+                <span>
+                  Master Plan
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
+
 
               <a
                 href="#amenities"
                 onClick={closeMenu}
               >
-                <small>05</small>
-                <span>Amenities</span>
+                <small>
+                  05
+                </small>
+
+                <span>
+                  Amenities
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
+
 
               <a
                 href="#location"
                 onClick={closeMenu}
               >
-                <small>06</small>
-                <span>Location</span>
+                <small>
+                  06
+                </small>
+
+                <span>
+                  Location
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
+
 
               <a
                 href="#contact"
                 onClick={closeMenu}
               >
-                <small>07</small>
-                <span>Contact</span>
+                <small>
+                  07
+                </small>
+
+                <span>
+                  Contact
+                </span>
+
+                <i>
+                  ↗
+                </i>
               </a>
 
             </nav>
 
 
-            {/* CTA */}
+            {/* MOBILE CTA */}
 
-            <a
-              href="#contact"
-              className="mobile-menu-cta"
-              onClick={closeMenu}
-            >
-              <span>
-                Book a Site Visit
-              </span>
+            <div className="vv-mobile-menu-bottom">
 
-              <strong>
-                ↗
-              </strong>
-            </a>
+              <a
+                href="#contact"
+                className="vv-mobile-cta"
+                onClick={closeMenu}
+              >
+
+                <span>
+                  Book a Site Visit
+                </span>
+
+                <strong>
+                  ↗
+                </strong>
+
+              </a>
 
 
-            {/* FOOTER */}
+              <div className="vv-mobile-footer">
 
-            <div className="mobile-menu-footer">
+                <span>
+                  LIFE IN THE CITY.
+                </span>
 
-              <span>
-                VISTARA VALLEY
-              </span>
+                <span>
+                  KHARGONE · MP
+                </span>
 
-              <span>
-                LIFE IN THE CITY.
-              </span>
+              </div>
 
             </div>
 
@@ -262,18 +359,18 @@ export default function Home() {
         </div>
 
 
-        {/* =========================================
+        {/* ==================================================
             HERO CONTENT
-        ========================================= */}
+        ================================================== */}
 
-        <div className="hero-content">
+        <div className="vv-hero-content">
 
-          <p className="hero-eyebrow">
+          <p className="vv-hero-eyebrow">
             PREMIUM RESIDENTIAL &amp; COMMERCIAL PLOTS
           </p>
 
 
-          <h1 className="hero-title">
+          <h1 className="vv-hero-title">
 
             Vistara Valley
 
@@ -284,12 +381,12 @@ export default function Home() {
           </h1>
 
 
-          <p className="hero-location">
+          <p className="vv-hero-location">
             Khandwa Road · Khargone
           </p>
 
 
-          <p className="hero-description">
+          <p className="vv-hero-description">
             A premium plotted development in Khargone,
             thoughtfully planned for modern residential
             living, commercial opportunities and a
@@ -299,8 +396,9 @@ export default function Home() {
 
           <a
             href="#about"
-            className="hero-button"
+            className="vv-hero-button"
           >
+
             <span>
               Explore the Project
             </span>
@@ -308,18 +406,19 @@ export default function Home() {
             <strong>
               ↗
             </strong>
+
           </a>
 
         </div>
 
 
-        {/* =========================================
-            HERO HIGHLIGHTS
-        ========================================= */}
+        {/* ==================================================
+            HERO INFORMATION
+        ================================================== */}
 
-        <div className="hero-highlights">
+        <div className="vv-hero-info">
 
-          <div className="hero-highlight">
+          <div className="vv-hero-info-item">
 
             <strong>
               RERA
@@ -332,7 +431,7 @@ export default function Home() {
           </div>
 
 
-          <div className="hero-highlight">
+          <div className="vv-hero-info-item">
 
             <strong>
               TNCP
@@ -345,7 +444,7 @@ export default function Home() {
           </div>
 
 
-          <div className="hero-highlight">
+          <div className="vv-hero-info-item">
 
             <strong>
               30 · 40 · 70 FT
@@ -360,14 +459,15 @@ export default function Home() {
         </div>
 
 
-        {/* =========================================
-            SCROLL
-        ========================================= */}
+        {/* ==================================================
+            SCROLL INDICATOR
+        ================================================== */}
 
         <a
           href="#about"
-          className="hero-scroll"
+          className="vv-scroll-indicator"
         >
+
           <span>
             SCROLL
           </span>
@@ -375,22 +475,23 @@ export default function Home() {
           <i>
             ↓
           </i>
+
         </a>
 
       </section>
 
 
-      {/* =========================================
-          SECTION 2 PLACEHOLDER
-      ========================================= */}
+      {/* ==================================================
+          TEMPORARY SECTION 2
+      ================================================== */}
 
       <section
         id="about"
-        className="placeholder-section"
+        className="vv-section-placeholder"
       >
-        <p>
-          Section 2 coming next.
-        </p>
+        <span>
+          SECTION 2
+        </span>
       </section>
 
     </main>

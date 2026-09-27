@@ -1,67 +1,81 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap");
+/* =========================================================
+   VISTARA VALLEY
+   SECTION 1 — HERO
+========================================================= */
 
-@import "tailwindcss";
 
-
-/* =========================================
-   VARIABLES
-========================================= */
+/* =========================================================
+   ROOT
+========================================================= */
 
 :root {
-  --black: #070807;
-  --white: #ffffff;
+  --vv-black: #090909;
+  --vv-white: #ffffff;
+  --vv-gold: #c6a36a;
 
-  --gold: #c6a46a;
-  --gold-light: #e2c58e;
+  --vv-border:
+    rgba(255, 255, 255, 0.16);
 
-  --text-light: rgba(255, 255, 255, 0.88);
-
-  --line: rgba(255, 255, 255, 0.20);
+  --vv-muted:
+    rgba(255, 255, 255, 0.62);
 }
 
 
-/* =========================================
+/* =========================================================
    RESET
-========================================= */
+========================================================= */
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
-
 
 html {
+  margin: 0;
+  padding: 0;
+
   scroll-behavior: smooth;
+
+  background:
+    var(--vv-black);
 }
 
-
 body {
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 
-  background: var(--black);
-  color: var(--white);
+  background:
+    var(--vv-black);
+
+  color:
+    var(--vv-white);
 
   font-family:
-    "Manrope",
     Arial,
     Helvetica,
     sans-serif;
 
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing:
+    antialiased;
+
+  text-rendering:
+    optimizeLegibility;
 }
 
+body,
+button,
+a {
+  -webkit-tap-highlight-color:
+    transparent;
+}
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-
 button {
   font: inherit;
 }
-
 
 img {
   display: block;
@@ -69,254 +83,275 @@ img {
 }
 
 
-/* =========================================
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
-.hero {
+.vv-hero {
   position: relative;
 
   width: 100%;
   height: 100svh;
-  min-height: 680px;
+
+  min-height: 650px;
 
   overflow: hidden;
 
-  background: #18262b;
-
-  isolation: isolate;
+  background:
+    var(--vv-black);
 }
 
 
-/* =========================================
-   PARALLAX BACKGROUND
-========================================= */
+/* =========================================================
+   HERO IMAGE
+========================================================= */
 
-.hero-background {
+.vv-hero-image {
   position: absolute;
 
-  top: -8%;
-  left: 0;
+  z-index: 0;
 
-  width: 100%;
-  height: 116%;
-
-  z-index: -2;
+  inset: -5%;
 
   background-image:
     url("/images/hero-entrance.jpg");
 
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-position:
+    center center;
+
+  background-size:
+    cover;
+
+  background-repeat:
+    no-repeat;
 
   transform:
     translate3d(0, 0, 0)
-    scale(1.08);
+    scale(1.06);
 
-  will-change: transform;
+  will-change:
+    transform;
 }
 
 
-/* =========================================
-   OVERLAY
-========================================= */
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
 
-.hero-overlay {
+.vv-hero-overlay {
   position: absolute;
 
-  inset: 0;
+  z-index: 1;
 
-  z-index: -1;
+  inset: 0;
 
   background:
     linear-gradient(
       90deg,
-      rgba(5, 9, 10, 0.76) 0%,
-      rgba(5, 9, 10, 0.58) 28%,
-      rgba(5, 9, 10, 0.20) 58%,
-      rgba(5, 9, 10, 0.04) 100%
+      rgba(4, 7, 8, 0.82) 0%,
+      rgba(4, 7, 8, 0.63) 28%,
+      rgba(4, 7, 8, 0.22) 62%,
+      rgba(4, 7, 8, 0.05) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.20) 0%,
+      rgba(0, 0, 0, 0.30) 0%,
       rgba(0, 0, 0, 0.02) 45%,
-      rgba(0, 0, 0, 0.62) 100%
+      rgba(0, 0, 0, 0.72) 100%
     );
 }
 
 
-/* =========================================
+/* =========================================================
    NAVBAR
-========================================= */
+========================================================= */
 
-.hero-nav {
+.vv-navbar {
   position: absolute;
+
+  z-index: 50;
 
   top: 0;
   left: 0;
+  right: 0;
 
-  width: 100%;
+  height: 96px;
 
   padding:
-    25px 7%;
+    0 5vw;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
-  z-index: 100;
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.10);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0)
+    );
 }
 
 
-.hero-logo {
-  width: 155px;
+/* =========================================================
+   LOGO
+========================================================= */
+
+.vv-logo {
+  width: 175px;
 
   display: block;
-
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
 }
 
-
-.hero-logo:hover {
-  transform: scale(1.02);
-  opacity: 0.9;
-}
-
-
-.hero-logo img {
+.vv-logo img {
   width: 100%;
   height: auto;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.vv-logo:hover img {
+  transform:
+    scale(1.025);
 }
 
 
-/* =========================================
-   DESKTOP NAVIGATION
-========================================= */
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
 
-.desktop-nav {
+.vv-desktop-nav {
   display: flex;
+
   align-items: center;
 
   gap: 30px;
 }
 
-
-.desktop-nav > a {
+.vv-desktop-nav > a {
   position: relative;
 
   color:
-    rgba(255, 255, 255, 0.88);
+    rgba(255, 255, 255, 0.86);
 
-  font-size: 9px;
+  font-size: 10px;
+
   font-weight: 600;
 
   letter-spacing: 1.4px;
 
   text-transform: uppercase;
 
+  white-space: nowrap;
+
   transition:
     color 0.25s ease;
 }
 
-
-.desktop-nav > a:not(.nav-cta)::after {
+.vv-desktop-nav > a:not(.vv-nav-button)::after {
   content: "";
 
   position: absolute;
 
   left: 0;
-  bottom: -7px;
+  bottom: -8px;
 
   width: 0;
   height: 1px;
 
   background:
-    var(--gold-light);
+    var(--vv-gold);
 
   transition:
-    width 0.3s ease;
+    width 0.25s ease;
 }
 
-
-.desktop-nav > a:not(.nav-cta):hover {
-  color: #ffffff;
+.vv-desktop-nav
+> a:not(.vv-nav-button):hover {
+  color:
+    var(--vv-white);
 }
 
-
-.desktop-nav > a:not(.nav-cta):hover::after {
+.vv-desktop-nav
+> a:not(.vv-nav-button):hover::after {
   width: 100%;
 }
 
 
-/* =========================================
+/* =========================================================
    DESKTOP CTA
-========================================= */
+========================================================= */
 
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 12px;
+.vv-nav-button {
+  min-height: 43px;
 
   padding:
-    10px 10px 10px 17px;
+    0 7px 0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
 
   border:
     1px solid
-    rgba(226, 197, 142, 0.75);
+    rgba(198, 163, 106, 0.72);
 
-  border-radius: 100px;
+  border-radius:
+    999px;
 
   background:
-    rgba(5, 7, 7, 0.18);
+    rgba(198, 163, 106, 0.05);
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  color: #ffffff !important;
+  color:
+    var(--vv-white) !important;
 }
 
-
-.nav-cta strong {
-  width: 24px;
-  height: 24px;
+.vv-nav-button strong {
+  width: 30px;
+  height: 30px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
   background:
-    var(--gold);
+    var(--vv-gold);
 
   color:
-    #111111;
+    var(--vv-black);
 
-  font-size: 12px;
+  font-size: 14px;
 
   font-weight: 400;
 }
 
 
-.nav-cta:hover {
-  background:
-    rgba(198, 164, 106, 0.18);
-}
+/* =========================================================
+   MOBILE HAMBURGER
+========================================================= */
 
+.vv-hamburger {
+  position: relative;
 
-/* =========================================
-   MOBILE MENU BUTTON
-========================================= */
+  z-index: 100;
 
-.hero-menu {
+  width: 46px;
+  height: 46px;
+
   display: none;
-
-  width: 44px;
-  height: 44px;
 
   align-items: center;
   justify-content: center;
@@ -325,562 +360,328 @@ img {
 
   gap: 5px;
 
+  padding: 0;
+
   border:
     1px solid
     rgba(255, 255, 255, 0.50);
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
   background:
-    rgba(0, 0, 0, 0.14);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+    rgba(0, 0, 0, 0.18);
 
   cursor: pointer;
 }
 
-
-.hero-menu span {
-  display: block;
-
+.vv-hamburger span {
   width: 16px;
   height: 1px;
 
+  display: block;
+
   background:
-    #ffffff;
+    var(--vv-white);
 
   transition:
-    transform 0.3s ease,
-    opacity 0.2s ease,
-    width 0.3s ease;
+    transform 0.30s ease,
+    opacity 0.20s ease;
 }
 
 
-.hero-menu span:nth-child(2) {
-  width: 11px;
-}
+/* =========================================================
+   HAMBURGER → X
+========================================================= */
 
-
-/* =========================================
-   MENU → CLOSE
-========================================= */
-
-.hero-menu.menu-active span:nth-child(1) {
+.vv-hamburger-active
+span:nth-child(1) {
   transform:
-    translateY(3px)
+    translateY(6px)
     rotate(45deg);
 }
 
-
-.hero-menu.menu-active span:nth-child(2) {
-  width: 0;
+.vv-hamburger-active
+span:nth-child(2) {
   opacity: 0;
 }
 
-
-.hero-menu.menu-active span:nth-child(3) {
+.vv-hamburger-active
+span:nth-child(3) {
   transform:
-    translateY(-3px)
+    translateY(-6px)
     rotate(-45deg);
 }
 
 
-/* =========================================
-   PREMIUM MOBILE MENU
-========================================= */
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
 
-.mobile-menu {
+.vv-mobile-navigation {
   position: fixed;
+
+  z-index: 40;
 
   inset: 0;
 
-  z-index: 90;
+  width: 100%;
+  height: 100svh;
 
-  visibility: hidden;
+  overflow-y: auto;
+
+  background:
+    #090909;
 
   opacity: 0;
 
-  background:
-    #0b0c0b;
+  visibility: hidden;
+
+  pointer-events: none;
 
   transform:
-    translateY(-20px);
+    translateY(-100%);
 
   transition:
-    opacity 0.35s ease,
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0.35s ease;
+    transform 0.50s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease,
+    visibility 0s linear 0.50s;
 }
 
+.vv-mobile-navigation-open {
+  opacity: 1;
 
-.mobile-menu-open {
   visibility: visible;
 
-  opacity: 1;
+  pointer-events: auto;
 
   transform:
     translateY(0);
+
+  transition:
+    transform 0.50s
+      cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
 }
 
 
-.mobile-menu-inner {
+/* =========================================================
+   MOBILE NAV INNER
+========================================================= */
+
+.vv-mobile-navigation-inner {
   min-height: 100svh;
 
   padding:
-    105px 26px 26px;
+    105px 25px 24px;
 
   display: flex;
+
   flex-direction: column;
 }
 
 
-/* =========================================
-   MENU HEADER
-========================================= */
+/* =========================================================
+   MOBILE MENU HEADER
+========================================================= */
 
-.mobile-menu-top {
+.vv-mobile-menu-header {
+  padding-bottom: 21px;
+
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  padding-bottom: 22px;
+  align-items: center;
+
+  justify-content: space-between;
 
   border-bottom:
     1px solid
-    rgba(255, 255, 255, 0.12);
+    rgba(255, 255, 255, 0.13);
 }
 
-
-.mobile-menu-top span:first-child {
+.vv-mobile-menu-header span {
   color:
-    var(--gold-light);
-
-  font-size: 9px;
-
-  font-weight: 600;
-
-  letter-spacing: 2px;
-}
-
-
-.mobile-menu-top span:last-child {
-  color:
-    rgba(255, 255, 255, 0.38);
+    var(--vv-gold);
 
   font-size: 7px;
 
-  letter-spacing: 1.2px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================
-   MENU LINKS
-========================================= */
-
-.mobile-menu-links {
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 20px;
-}
-
-
-.mobile-menu-links a {
-  display: flex;
-  align-items: baseline;
-
-  gap: 17px;
-
-  padding:
-    10px 0;
-
-  color:
-    rgba(255, 255, 255, 0.94);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 31px;
-
-  font-weight: 400;
-
-  line-height: 1.15;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-
-.mobile-menu-links a:hover {
-  color:
-    var(--gold-light);
-
-  transform:
-    translateX(5px);
-}
-
-
-.mobile-menu-links small {
-  width: 20px;
-
-  color:
-    var(--gold);
-
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
-
-  font-size: 7px;
-
-  letter-spacing: 1px;
-}
-
-
-.mobile-menu-links span {
-  display: block;
-}
-
-
-/* =========================================
-   MOBILE MENU CTA
-========================================= */
-
-.mobile-menu-cta {
-  margin-top: auto;
-
-  min-height: 56px;
-
-  padding:
-    10px 10px 10px 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  border:
-    1px solid
-    rgba(198, 164, 106, 0.65);
-
-  border-radius:
-    100px;
-
-  background:
-    rgba(198, 164, 106, 0.06);
-
-  color:
-    #ffffff;
-
-  font-size: 9px;
-
-  font-weight: 600;
+  font-weight: 700;
 
   letter-spacing: 1.7px;
 
   text-transform: uppercase;
 }
 
-
-.mobile-menu-cta strong {
-  width: 36px;
-  height: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background:
-    var(--gold);
-
+.vv-mobile-menu-header span:last-child {
   color:
-    #111111;
+    rgba(255, 255, 255, 0.38);
 
-  font-size: 15px;
-
-  font-weight: 400;
+  font-size: 6px;
 }
 
 
-/* =========================================
-   MOBILE MENU FOOTER
-========================================= */
+/* =========================================================
+   MOBILE MENU LINKS
+========================================================= */
 
-.mobile-menu-footer {
-  margin-top: 20px;
+.vv-mobile-menu-links {
+  margin-top: 25px;
 
   display: flex;
+
+  flex-direction: column;
+}
+
+.vv-mobile-menu-links a {
+  min-height: 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    25px
+    1fr
+    25px;
+
   align-items: center;
-  justify-content: space-between;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.10);
 
   color:
-    rgba(255, 255, 255, 0.24);
+    var(--vv-white);
+}
+
+.vv-mobile-menu-links small {
+  color:
+    var(--vv-gold);
 
   font-size: 7px;
 
-  letter-spacing: 1.5px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================
-   HERO CONTENT
-========================================= */
-
-.hero-content {
-  position: absolute;
-
-  left: 7%;
-  top: 50%;
-
-  width:
-    min(650px, 85%);
-
-  transform:
-    translateY(-50%);
-
-  z-index: 5;
-}
-
-
-.hero-eyebrow {
-  margin-bottom: 20px;
-
-  color:
-    var(--gold-light);
-
-  font-size: 10px;
-
   font-weight: 600;
 
-  letter-spacing: 2.4px;
-
-  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-
-.hero-title {
-  display: flex;
-  flex-direction: column;
-
-  color:
-    #ffffff;
-
+.vv-mobile-menu-links span {
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size:
-    clamp(60px, 7vw, 100px);
+  font-size: 25px;
 
   font-weight: 400;
 
-  line-height: 0.92;
-
-  letter-spacing: -4px;
+  line-height: 1;
 }
 
-
-.hero-title span {
-  margin-top: 10px;
-
+.vv-mobile-menu-links i {
   color:
-    var(--gold-light);
-
-  font-size:
-    0.62em;
-
-  font-style: italic;
-
-  letter-spacing: -2px;
-}
-
-
-.hero-location {
-  margin-top: 28px;
-
-  color:
-    rgba(255, 255, 255, 0.95);
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  letter-spacing: 1.6px;
-
-  text-transform: uppercase;
-}
-
-
-.hero-location::before {
-  content: "";
-
-  display: inline-block;
-
-  width: 6px;
-  height: 6px;
-
-  margin:
-    0 10px
-    2px 0;
-
-  border-radius: 50%;
-
-  background:
-    var(--gold-light);
-}
-
-
-.hero-description {
-  max-width: 510px;
-
-  margin-top: 18px;
-
-  color:
-    var(--text-light);
+    rgba(255, 255, 255, 0.32);
 
   font-size: 14px;
 
-  line-height: 1.8;
+  font-style: normal;
 
-  text-shadow:
-    0 2px 12px
-    rgba(0, 0, 0, 0.28);
+  text-align: right;
 }
 
 
-/* =========================================
-   HERO BUTTON
-========================================= */
+/* =========================================================
+   MOBILE MENU BOTTOM
+========================================================= */
 
-.hero-button {
-  width: fit-content;
+.vv-mobile-menu-bottom {
+  margin-top: auto;
+}
 
-  margin-top: 30px;
+
+/* =========================================================
+   MOBILE CTA
+========================================================= */
+
+.vv-mobile-cta {
+  min-height: 57px;
 
   padding:
-    13px 13px 13px 20px;
+    7px 8px 7px 20px;
 
-  display: inline-flex;
+  display: flex;
+
   align-items: center;
 
-  gap: 22px;
+  justify-content: space-between;
 
   border:
     1px solid
-    rgba(226, 197, 142, 0.85);
+    rgba(198, 163, 106, 0.72);
 
   border-radius:
-    100px;
-
-  background:
-    rgba(7, 9, 8, 0.30);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+    999px;
 
   color:
-    #ffffff;
+    var(--vv-white);
 
-  font-size: 9px;
+  font-size: 8px;
 
-  font-weight: 600;
+  font-weight: 700;
 
-  letter-spacing: 1.6px;
+  letter-spacing: 1.7px;
 
   text-transform: uppercase;
 }
 
-
-.hero-button strong {
-  width: 30px;
-  height: 30px;
+.vv-mobile-cta strong {
+  width: 42px;
+  height: 42px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
   background:
-    var(--gold);
+    var(--vv-gold);
 
   color:
-    #111111;
+    var(--vv-black);
 
-  font-size: 14px;
+  font-size: 18px;
 
   font-weight: 400;
 }
 
 
-/* =========================================
-   HERO HIGHLIGHTS
-========================================= */
+/* =========================================================
+   MOBILE FOOTER
+========================================================= */
 
-.hero-highlights {
-  position: absolute;
+.vv-mobile-footer {
+  margin-top: 17px;
 
-  left: 7%;
-  right: 7%;
-  bottom: 72px;
+  padding-top: 15px;
 
-  z-index: 10;
+  display: flex;
 
-  display: grid;
+  align-items: center;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  justify-content: space-between;
 
   border-top:
     1px solid
-    var(--line);
-
-  border-bottom:
-    1px solid
-    var(--line);
-
-  background:
-    rgba(5, 7, 7, 0.12);
-
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+    rgba(255, 255, 255, 0.09);
 }
 
-
-.hero-highlight {
-  min-height: 68px;
-
-  padding:
-    13px 18px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-.hero-highlight:not(:last-child) {
-  border-right:
-    1px solid
-    var(--line);
-}
-
-
-.hero-highlight strong {
+.vv-mobile-footer span {
   color:
-    #ffffff;
+    rgba(255, 255, 255, 0.30);
 
-  font-size: 11px;
+  font-size: 6px;
 
   font-weight: 600;
 
@@ -888,338 +689,615 @@ img {
 }
 
 
-.hero-highlight span {
-  margin-top: 5px;
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.vv-hero-content {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 7vw;
+
+  bottom: 21vh;
+
+  width:
+    min(650px, 82vw);
+}
+
+.vv-hero-eyebrow {
+  margin:
+    0 0 20px;
 
   color:
-    rgba(255, 255, 255, 0.56);
+    var(--vv-gold);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.vv-hero-title {
+  margin: 0;
+
+  color:
+    var(--vv-white);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(55px, 7.2vw, 105px);
+
+  font-weight: 400;
+
+  line-height:
+    0.92;
+
+  letter-spacing:
+    -3px;
+}
+
+.vv-hero-title span {
+  display: block;
+
+  margin-top: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+
+  font-size:
+    0.44em;
+
+  font-style: italic;
+
+  letter-spacing:
+    -0.5px;
+}
+
+.vv-hero-location {
+  margin:
+    23px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
+}
+
+.vv-hero-description {
+  max-width: 470px;
+
+  margin:
+    16px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.67);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HERO BUTTON
+========================================================= */
+
+.vv-hero-button {
+  margin-top: 25px;
+
+  min-height: 51px;
+
+  padding:
+    6px 7px 6px 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 28px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.48);
+
+  border-radius:
+    999px;
+
+  color:
+    var(--vv-white);
 
   font-size: 8px;
 
-  letter-spacing: 1px;
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
 
   text-transform: uppercase;
 }
 
-
-/* =========================================
-   SCROLL
-========================================= */
-
-.hero-scroll {
-  position: absolute;
-
-  bottom: 17px;
-  left: 50%;
-
-  z-index: 12;
-
-  transform:
-    translateX(-50%);
+.vv-hero-button strong {
+  width: 37px;
+  height: 37px;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  gap: 4px;
-
-  color:
-    rgba(255, 255, 255, 0.58);
-
-  font-size: 7px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-}
-
-
-.hero-scroll i {
-  color:
-    var(--gold-light);
-
-  font-size: 15px;
-
-  font-style: normal;
-
-  animation:
-    scrollArrow 1.8s ease-in-out infinite;
-}
-
-
-@keyframes scrollArrow {
-
-  0%,
-  100% {
-    transform:
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translateY(5px);
-  }
-}
-
-
-/* =========================================
-   TEMPORARY SECTION 2
-========================================= */
-
-.placeholder-section {
-  min-height: 60vh;
-
-  display: flex;
   align-items: center;
   justify-content: center;
 
+  border-radius:
+    50%;
+
   background:
-    #f7f4ed;
+    var(--vv-gold);
+
+  color:
+    var(--vv-black);
+
+  font-size: 17px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   HERO INFORMATION
+========================================================= */
+
+.vv-hero-info {
+  position: absolute;
+
+  z-index: 5;
+
+  right: 5vw;
+
+  bottom: 7vh;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, auto);
+}
+
+.vv-hero-info-item {
+  min-width: 145px;
+
+  padding:
+    0 25px;
+
+  border-left:
+    1px solid
+    rgba(255, 255, 255, 0.20);
+}
+
+.vv-hero-info-item:first-child {
+  border-left: none;
+}
+
+.vv-hero-info-item strong {
+  display: block;
+
+  color:
+    var(--vv-white);
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.6px;
+}
+
+.vv-hero-info-item span {
+  display: block;
+
+  margin-top: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 7px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.vv-scroll-indicator {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 5vw;
+
+  bottom: 6vh;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.vv-scroll-indicator i {
+  color:
+    var(--vv-gold);
+
+  font-size: 14px;
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   TEMPORARY SECTION 2
+========================================================= */
+
+.vv-section-placeholder {
+  min-height: 500px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    #f3f1ec;
 
   color:
     #111111;
 }
 
+.vv-section-placeholder span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-.placeholder-section p {
-  font-size: 11px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
+  font-size: 24px;
 }
 
 
-/* =========================================
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .vv-desktop-nav {
+    gap: 20px;
+  }
+
+  .vv-hero-content {
+    left: 6vw;
+  }
+
+  .vv-hero-info {
+    right: 3vw;
+  }
+
+  .vv-hero-info-item {
+    min-width: 120px;
+
+    padding:
+      0 15px;
+  }
+}
+
+
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 900px) {
 
-  .hero-nav {
-    padding:
-      20px 18px;
+  .vv-hero {
+    min-height: 620px;
   }
 
 
-  .desktop-nav {
+  /* NAVBAR */
+
+  .vv-navbar {
+    height: 86px;
+
+    padding:
+      0 21px;
+  }
+
+  .vv-logo {
+    width: 145px;
+  }
+
+  .vv-desktop-nav {
     display: none;
   }
 
-
-  .hero-menu {
+  .vv-hamburger {
     display: flex;
   }
 
 
-  .hero-logo {
-    width: 142px;
-  }
+  /* IMAGE */
 
-
-  .hero-background {
-    top: -6%;
-
-    height: 112%;
-
+  .vv-hero-image {
     background-position:
-      center center;
+      58% center;
   }
 
 
-  .hero-overlay {
+  /* OVERLAY */
+
+  .vv-hero-overlay {
     background:
       linear-gradient(
         180deg,
-        rgba(4, 8, 9, 0.28) 0%,
-        rgba(4, 8, 9, 0.08) 28%,
-        rgba(4, 8, 9, 0.36) 57%,
-        rgba(4, 8, 9, 0.88) 100%
+        rgba(5, 8, 8, 0.35) 0%,
+        rgba(5, 8, 8, 0.08) 30%,
+        rgba(5, 8, 8, 0.28) 55%,
+        rgba(5, 8, 8, 0.86) 100%
       );
   }
 
 
-  .hero-content {
-    left: 20px;
-    right: 20px;
+  /* HERO CONTENT */
 
-    top: auto;
-    bottom: 205px;
+  .vv-hero-content {
+    left: 23px;
+    right: 23px;
+
+    bottom: 198px;
 
     width: auto;
-
-    transform: none;
   }
 
+  .vv-hero-eyebrow {
+    margin-bottom: 14px;
 
-  .hero-eyebrow {
-    max-width: 300px;
+    font-size: 7px;
 
-    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+
+  .vv-hero-title {
+    font-size:
+      clamp(47px, 14.5vw, 72px);
+
+    line-height:
+      0.92;
+
+    letter-spacing:
+      -2px;
+  }
+
+  .vv-hero-title span {
+    margin-top: 10px;
+
+    font-size:
+      0.43em;
+  }
+
+  .vv-hero-location {
+    margin-top: 16px;
 
     font-size: 8px;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 1.9px;
   }
 
-
-  .hero-title {
-    font-size:
-      clamp(48px, 14vw, 68px);
-
-    letter-spacing: -3px;
-  }
-
-
-  .hero-title span {
-    margin-top: 7px;
-
-    font-size:
-      0.66em;
-
-    letter-spacing: -1.5px;
-  }
-
-
-  .hero-location {
-    margin-top: 21px;
-
-    font-size: 9px;
-
-    letter-spacing: 1.1px;
-  }
-
-
-  .hero-description {
+  .vv-hero-description {
     max-width: 360px;
 
-    margin-top: 14px;
+    margin-top: 12px;
 
-    font-size: 11px;
+    font-size: 10.5px;
 
-    line-height: 1.7;
+    line-height: 1.55;
+  }
+
+  .vv-hero-button {
+    margin-top: 18px;
+
+    min-height: 46px;
+
+    padding-left: 17px;
+
+    gap: 22px;
+  }
+
+  .vv-hero-button strong {
+    width: 34px;
+    height: 34px;
   }
 
 
-  .hero-button {
-    margin-top: 22px;
+  /* INFORMATION */
 
-    padding:
-      11px 11px 11px 17px;
+  .vv-hero-info {
+    left: 23px;
+    right: 23px;
 
-    gap: 18px;
-
-    font-size: 8px;
-  }
-
-
-  .hero-button strong {
-    width: 27px;
-    height: 27px;
-
-    font-size: 12px;
-  }
-
-
-  .hero-highlights {
-    left: 18px;
-    right: 18px;
-
-    bottom: 54px;
+    bottom: 48px;
 
     grid-template-columns:
       repeat(3, 1fr);
   }
 
-
-  .hero-highlight {
-    min-height: 55px;
+  .vv-hero-info-item {
+    min-width: 0;
 
     padding:
-      9px 7px;
+      0 10px;
   }
 
+  .vv-hero-info-item:first-child {
+    padding-left: 0;
+  }
 
-  .hero-highlight strong {
+  .vv-hero-info-item strong {
     font-size: 8px;
+
+    letter-spacing: 1px;
+  }
+
+  .vv-hero-info-item span {
+    margin-top: 5px;
+
+    font-size: 5.5px;
+
+    line-height: 1.3;
 
     letter-spacing: 0.7px;
   }
 
 
-  .hero-highlight span {
-    margin-top: 3px;
+  /* SCROLL */
 
-    font-size: 6px;
-
-    line-height: 1.3;
-
-    letter-spacing: 0.5px;
-  }
-
-
-  .hero-scroll {
+  .vv-scroll-indicator {
     display: none;
   }
 
+
+  /* MOBILE MENU */
+
+  .vv-mobile-navigation-inner {
+    padding:
+      99px 24px 22px;
+  }
+
+  .vv-mobile-menu-links {
+    margin-top: 22px;
+  }
+
+  .vv-mobile-menu-links a {
+    min-height: 48px;
+  }
+
+  .vv-mobile-menu-links span {
+    font-size: 24px;
+  }
+
 }
 
 
-/* =========================================
-   SMALL PHONES
-========================================= */
+/* =========================================================
+   SMALL PHONE
+========================================================= */
 
 @media (max-width: 390px) {
 
-  .hero-content {
-    bottom: 194px;
+  .vv-navbar {
+    padding:
+      0 18px;
   }
 
+  .vv-logo {
+    width: 136px;
+  }
 
-  .hero-title {
+  .vv-hamburger {
+    width: 44px;
+    height: 44px;
+  }
+
+  .vv-hero-content {
+    left: 20px;
+    right: 20px;
+
+    bottom: 190px;
+  }
+
+  .vv-hero-title {
     font-size: 47px;
   }
 
-
-  .hero-description {
+  .vv-hero-description {
     font-size: 10px;
   }
 
+  .vv-hero-info {
+    left: 20px;
+    right: 20px;
 
-  .hero-highlights {
-    bottom: 48px;
+    bottom: 45px;
   }
 
-
-  .hero-highlight {
-    min-height: 51px;
+  .vv-hero-info-item {
+    padding:
+      0 7px;
   }
 
-
-  .hero-highlight strong {
+  .vv-hero-info-item strong {
     font-size: 7px;
   }
 
-
-  .mobile-menu-inner {
-    padding:
-      100px 22px 22px;
+  .vv-hero-info-item span {
+    font-size: 5px;
   }
 
-
-  .mobile-menu-links a {
-    font-size: 28px;
-
+  .vv-mobile-navigation-inner {
     padding:
-      8px 0;
+      95px 21px 20px;
   }
 
+  .vv-mobile-menu-links {
+    margin-top: 18px;
+  }
+
+  .vv-mobile-menu-links a {
+    min-height: 45px;
+  }
+
+  .vv-mobile-menu-links span {
+    font-size: 22px;
+  }
+
+  .vv-mobile-cta {
+    min-height: 53px;
+  }
+
+  .vv-mobile-cta strong {
+    width: 39px;
+    height: 39px;
+  }
 }
 
 
-/* =========================================
+/* =========================================================
    REDUCED MOTION
-========================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1227,15 +1305,14 @@ img {
     scroll-behavior: auto;
   }
 
-
-  .hero-background {
+  .vv-hero-image {
     transform:
-      scale(1.08);
+      scale(1.06) !important;
   }
 
-
-  .hero-scroll i {
-    animation: none;
+  .vv-mobile-navigation,
+  .vv-hamburger span,
+  .vv-logo img {
+    transition: none !important;
   }
-
 }
