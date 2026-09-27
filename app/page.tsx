@@ -38,9 +38,9 @@ export default function Home() {
   return (
     <main>
 
-      {/* =================================
+      {/* =========================================
           SECTION 1 — HERO
-      ================================= */}
+      ========================================= */}
 
       <section className="hero" id="home">
 
@@ -50,14 +50,17 @@ export default function Home() {
           className="hero-background"
         />
 
+        {/* OVERLAY */}
         <div className="hero-overlay" />
 
 
-        {/* =================================
+        {/* =========================================
             NAVBAR
-        ================================= */}
+        ========================================= */}
 
         <header className="hero-nav">
+
+          {/* LOGO */}
 
           <a
             href="#home"
@@ -75,24 +78,36 @@ export default function Home() {
 
           <nav className="desktop-nav">
 
-            <a href="#about">About</a>
+            <a href="#about">
+              About
+            </a>
 
-            <a href="#plots">Plots</a>
+            <a href="#plots">
+              Plots
+            </a>
 
-            <a href="#master-plan">Master Plan</a>
+            <a href="#master-plan">
+              Master Plan
+            </a>
 
-            <a href="#amenities">Amenities</a>
+            <a href="#amenities">
+              Amenities
+            </a>
 
-            <a href="#location">Location</a>
+            <a href="#location">
+              Location
+            </a>
 
-            <a href="#contact">Contact</a>
+            <a href="#contact">
+              Contact
+            </a>
 
             <a
               href="#contact"
               className="nav-cta"
             >
-              Book a Site Visit
-              <span>↗</span>
+              <span>Book a Site Visit</span>
+              <strong>↗</strong>
             </a>
 
           </nav>
@@ -101,7 +116,9 @@ export default function Home() {
           {/* MOBILE MENU BUTTON */}
 
           <button
-            className={`hero-menu ${menuOpen ? "menu-active" : ""}`}
+            className={`hero-menu ${
+              menuOpen ? "menu-active" : ""
+            }`}
             type="button"
             aria-label={
               menuOpen
@@ -119,9 +136,9 @@ export default function Home() {
         </header>
 
 
-        {/* =================================
+        {/* =========================================
             MOBILE MENU
-        ================================= */}
+        ========================================= */}
 
         <div
           className={`mobile-menu ${
@@ -130,6 +147,8 @@ export default function Home() {
         >
 
           <div className="mobile-menu-inner">
+
+            {/* TOP */}
 
             <div className="mobile-menu-top">
 
@@ -144,6 +163,8 @@ export default function Home() {
             </div>
 
 
+            {/* LINKS */}
+
             <nav className="mobile-menu-links">
 
               <a
@@ -151,7 +172,7 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>01</small>
-                Home
+                <span>Home</span>
               </a>
 
               <a
@@ -159,7 +180,7 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>02</small>
-                About
+                <span>About</span>
               </a>
 
               <a
@@ -167,7 +188,7 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>03</small>
-                Plots
+                <span>Plots</span>
               </a>
 
               <a
@@ -175,7 +196,7 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>04</small>
-                Master Plan
+                <span>Master Plan</span>
               </a>
 
               <a
@@ -183,7 +204,7 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>05</small>
-                Amenities
+                <span>Amenities</span>
               </a>
 
               <a
@@ -191,7 +212,7 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>06</small>
-                Location
+                <span>Location</span>
               </a>
 
               <a
@@ -199,25 +220,41 @@ export default function Home() {
                 onClick={closeMenu}
               >
                 <small>07</small>
-                Contact
+                <span>Contact</span>
               </a>
 
             </nav>
 
+
+            {/* CTA */}
 
             <a
               href="#contact"
               className="mobile-menu-cta"
               onClick={closeMenu}
             >
-              <span>Book a Site Visit</span>
-              <strong>↗</strong>
+              <span>
+                Book a Site Visit
+              </span>
+
+              <strong>
+                ↗
+              </strong>
             </a>
 
 
+            {/* FOOTER */}
+
             <div className="mobile-menu-footer">
-              <span>VISTARA VALLEY</span>
-              <span>LIFE IN THE CITY.</span>
+
+              <span>
+                VISTARA VALLEY
+              </span>
+
+              <span>
+                LIFE IN THE CITY.
+              </span>
+
             </div>
 
           </div>
@@ -225,9 +262,9 @@ export default function Home() {
         </div>
 
 
-        {/* =================================
+        {/* =========================================
             HERO CONTENT
-        ================================= */}
+        ========================================= */}
 
         <div className="hero-content">
 
@@ -235,14 +272,22 @@ export default function Home() {
             PREMIUM RESIDENTIAL &amp; COMMERCIAL PLOTS
           </p>
 
+
           <h1 className="hero-title">
+
             Vistara Valley
-            <span>Life in the city.</span>
+
+            <span>
+              Life in the city.
+            </span>
+
           </h1>
+
 
           <p className="hero-location">
             Khandwa Road · Khargone
           </p>
+
 
           <p className="hero-description">
             A premium plotted development in Khargone,
@@ -251,63 +296,101 @@ export default function Home() {
             connected lifestyle.
           </p>
 
+
           <a
             href="#about"
             className="hero-button"
           >
-            <span>Explore the Project</span>
-            <strong>↗</strong>
+            <span>
+              Explore the Project
+            </span>
+
+            <strong>
+              ↗
+            </strong>
           </a>
 
         </div>
 
 
-        {/* =================================
-            TRUST HIGHLIGHTS
-        ================================= */}
+        {/* =========================================
+            HERO HIGHLIGHTS
+        ========================================= */}
 
         <div className="hero-highlights">
 
           <div className="hero-highlight">
-            <strong>RERA</strong>
-            <span>Approved</span>
+
+            <strong>
+              RERA
+            </strong>
+
+            <span>
+              Approved
+            </span>
+
           </div>
 
-          <div className="hero-highlight">
-            <strong>TNCP</strong>
-            <span>Approved</span>
-          </div>
 
           <div className="hero-highlight">
-            <strong>30 · 40 · 70 FT</strong>
-            <span>Wide Internal Roads</span>
+
+            <strong>
+              TNCP
+            </strong>
+
+            <span>
+              Approved
+            </span>
+
+          </div>
+
+
+          <div className="hero-highlight">
+
+            <strong>
+              30 · 40 · 70 FT
+            </strong>
+
+            <span>
+              Wide Internal Roads
+            </span>
+
           </div>
 
         </div>
 
 
-        {/* SCROLL */}
+        {/* =========================================
+            SCROLL
+        ========================================= */}
 
         <a
           href="#about"
           className="hero-scroll"
         >
-          <span>SCROLL</span>
-          <i>↓</i>
+          <span>
+            SCROLL
+          </span>
+
+          <i>
+            ↓
+          </i>
         </a>
 
       </section>
 
 
-      {/* =================================
+      {/* =========================================
           SECTION 2 PLACEHOLDER
-      ================================= */}
+      ========================================= */}
 
       <section
         id="about"
         className="placeholder-section"
       >
-        <p>Section 2 coming next.</p>
+        <p>
+          Section 2 coming next.
+        </p>
       </section>
 
     </main>
