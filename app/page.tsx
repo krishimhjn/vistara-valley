@@ -1,36 +1,22 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
-import About from "./components/About";
-import Highlights from "./components/Highlights";
-import MasterPlan from "./components/MasterPlan";
-import Gallery from "./components/Gallery";
-import Amenities from "./components/Amenities";
-import Location from "./components/Location";
-import Plots from "./components/Plots";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { useEffect, useRef, useState } from "react";
+import "./globals.css";
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const hero = heroRef.current;
       const image = heroImageRef.current;
 
-      if (!hero || !image) return;
+      if (!image) return;
 
       const scrollY = window.scrollY;
-      const heroHeight = hero.offsetHeight;
 
-      if (scrollY <= heroHeight) {
-        const movement = scrollY * 0.35;
-
-        image.style.transform =
-          `translate3d(0, ${movement}px, 0) scale(1.08)`;
+      if (scrollY <= window.innerHeight) {
+        image.style.transform = `translate3d(0, ${scrollY * 0.28}px, 0) scale(1.08)`;
       }
     };
 
@@ -45,138 +31,284 @@ export default function Home() {
     };
   }, []);
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <main>
 
-      {/* Navigation */}
-      <nav className="navbar">
+      {/* =================================
+          SECTION 1 — HERO
+      ================================= */}
 
-        <div className="logo">
-          <img
-            src="/images/logo.png"
-            alt="Vistara Valley"
-          />
+      <section className="hero" id="home">
+
+        {/* PARALLAX BACKGROUND */}
+        <div
+          ref={heroImageRef}
+          className="hero-background"
+        />
+
+        <div className="hero-overlay" />
+
+
+        {/* =================================
+            NAVBAR
+        ================================= */}
+
+        <header className="hero-nav">
+
+          <a
+            href="#home"
+            className="hero-logo"
+            onClick={closeMenu}
+          >
+            <img
+              src="/images/logo.png"
+              alt="Vistara Valley - Life in the city"
+            />
+          </a>
+
+
+          {/* DESKTOP NAVIGATION */}
+
+          <nav className="desktop-nav">
+
+            <a href="#about">About</a>
+
+            <a href="#plots">Plots</a>
+
+            <a href="#master-plan">Master Plan</a>
+
+            <a href="#amenities">Amenities</a>
+
+            <a href="#location">Location</a>
+
+            <a href="#contact">Contact</a>
+
+            <a
+              href="#contact"
+              className="nav-cta"
+            >
+              Book a Site Visit
+              <span>↗</span>
+            </a>
+
+          </nav>
+
+
+          {/* MOBILE MENU BUTTON */}
+
+          <button
+            className={`hero-menu ${menuOpen ? "menu-active" : ""}`}
+            type="button"
+            aria-label={
+              menuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+        </header>
+
+
+        {/* =================================
+            MOBILE MENU
+        ================================= */}
+
+        <div
+          className={`mobile-menu ${
+            menuOpen ? "mobile-menu-open" : ""
+          }`}
+        >
+
+          <div className="mobile-menu-inner">
+
+            <div className="mobile-menu-top">
+
+              <span>
+                VISTARA VALLEY
+              </span>
+
+              <span>
+                KHANDWA ROAD · KHARGONE
+              </span>
+
+            </div>
+
+
+            <nav className="mobile-menu-links">
+
+              <a
+                href="#home"
+                onClick={closeMenu}
+              >
+                <small>01</small>
+                Home
+              </a>
+
+              <a
+                href="#about"
+                onClick={closeMenu}
+              >
+                <small>02</small>
+                About
+              </a>
+
+              <a
+                href="#plots"
+                onClick={closeMenu}
+              >
+                <small>03</small>
+                Plots
+              </a>
+
+              <a
+                href="#master-plan"
+                onClick={closeMenu}
+              >
+                <small>04</small>
+                Master Plan
+              </a>
+
+              <a
+                href="#amenities"
+                onClick={closeMenu}
+              >
+                <small>05</small>
+                Amenities
+              </a>
+
+              <a
+                href="#location"
+                onClick={closeMenu}
+              >
+                <small>06</small>
+                Location
+              </a>
+
+              <a
+                href="#contact"
+                onClick={closeMenu}
+              >
+                <small>07</small>
+                Contact
+              </a>
+
+            </nav>
+
+
+            <a
+              href="#contact"
+              className="mobile-menu-cta"
+              onClick={closeMenu}
+            >
+              <span>Book a Site Visit</span>
+              <strong>↗</strong>
+            </a>
+
+
+            <div className="mobile-menu-footer">
+              <span>VISTARA VALLEY</span>
+              <span>LIFE IN THE CITY.</span>
+            </div>
+
+          </div>
+
         </div>
 
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#amenities">Amenities</a>
-          <a href="#location">Location</a>
-          <a href="#contact">Contact</a>
+
+        {/* =================================
+            HERO CONTENT
+        ================================= */}
+
+        <div className="hero-content">
+
+          <p className="hero-eyebrow">
+            PREMIUM RESIDENTIAL &amp; COMMERCIAL PLOTS
+          </p>
+
+          <h1 className="hero-title">
+            Vistara Valley
+            <span>Life in the city.</span>
+          </h1>
+
+          <p className="hero-location">
+            Khandwa Road · Khargone
+          </p>
+
+          <p className="hero-description">
+            A premium plotted development in Khargone,
+            thoughtfully planned for modern residential
+            living, commercial opportunities and a
+            connected lifestyle.
+          </p>
+
+          <a
+            href="#about"
+            className="hero-button"
+          >
+            <span>Explore the Project</span>
+            <strong>↗</strong>
+          </a>
+
         </div>
 
-        <a
-          href="#contact"
-          className="nav-button"
-        >
-          Book a Site Visit
-        </a>
 
-      </nav>
+        {/* =================================
+            TRUST HIGHLIGHTS
+        ================================= */}
+
+        <div className="hero-highlights">
+
+          <div className="hero-highlight">
+            <strong>RERA</strong>
+            <span>Approved</span>
+          </div>
+
+          <div className="hero-highlight">
+            <strong>TNCP</strong>
+            <span>Approved</span>
+          </div>
+
+          <div className="hero-highlight">
+            <strong>30 · 40 · 70 FT</strong>
+            <span>Wide Internal Roads</span>
+          </div>
+
+        </div>
 
 
-      {/* Hero Section */}
-      <section ref={heroRef} className="hero">
-  <div
-    ref={heroImageRef}
-    className="hero-parallax"
-  />
-
-  <div className="hero-content">
-
-    <div className="hero-copy">
-      <p className="hero-eyebrow">
-        PREMIUM RESIDENTIAL & COMMERCIAL PLOTS
-      </p>
-
-      <h1 className="hero-title">
-        Vistara Valley
-        <br />
-        <span>Life in the city.</span>
-      </h1>
-
-      <p className="hero-description">
-        A thoughtfully planned address on Khandwa Road,
-        Khargone, designed for modern living, business
-        opportunities and long-term growth.
-      </p>
-
-      <div className="hero-buttons">
-        <a
-          href="#contact"
-          className="primary-button"
-        >
-          Book a Site Visit
-          <span>↗</span>
-        </a>
+        {/* SCROLL */}
 
         <a
           href="#about"
-          className="secondary-button"
+          className="hero-scroll"
         >
-          Explore Project
-          <span>↓</span>
+          <span>SCROLL</span>
+          <i>↓</i>
         </a>
-      </div>
-    </div>
 
-    <div className="hero-highlights">
+      </section>
 
-      <div className="hero-highlight">
-        <strong>RERA</strong>
-        <span>Registered Project</span>
-      </div>
 
-      <div className="hero-highlight">
-        <strong>TNCP</strong>
-        <span>Approved Project</span>
-      </div>
+      {/* =================================
+          SECTION 2 PLACEHOLDER
+      ================================= */}
 
-      <div className="hero-highlight">
-        <strong>TWO GATES</strong>
-        <span>Entry & Exit</span>
-      </div>
-
-      <div className="hero-highlight">
-        <strong>2 IN 1</strong>
-        <span>Residential & Commercial</span>
-      </div>
-
-    </div>
-
-    <div className="hero-scroll">
-      <span>SCROLL</span>
-      <div>↓</div>
-    </div>
-
-  </div>
-</section>
-      {/* Gallery */}
-      <Gallery />
-
-      {/* About */}
-      <About />
-
-      {/* Highlights */}
-      <Highlights />
-
-      {/* Master Plan */}
-      <MasterPlan />
-
-      {/* Amenities */}
-      <Amenities />
-
-      {/* Plots */}
-      <Plots />
-
-      {/* Location */}
-      <Location />
-
-      {/* Contact */}
-      <Contact />
-
-      {/* Footer */}
-      <Footer />
+      <section
+        id="about"
+        className="placeholder-section"
+      >
+        <p>Section 2 coming next.</p>
+      </section>
 
     </main>
   );
